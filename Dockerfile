@@ -1,5 +1,7 @@
 FROM certbot/certbot:latest
 
-RUN pip install certbot-dns-aliyun
-
-ENTRYPOINT ["certbot", "certonly", "--dns-aliyun"]
+RUN add docker-cli
+RUN pip install --root-user-action=ignore certbot-dns-aliyun
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

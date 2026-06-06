@@ -1,0 +1,23 @@
+version: 3.8
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./conf:/etc/nginx/conf.d:ro
+      - ./web:/var/www/html:ro
+      - ./etc/letsencrypt:/etc/letsencrypt:ro
+      - ./logs:/var/log/nginx:rw
+
+  certbot:
+    image: usernamebeta/certbot-dns-aliyun:latest
+    container_name: certbot
+    env_file:
+      - ./.env
+    volumes:
+      - ./etc/letsencrypt:/etc/letsencrypt:rw
+      - ./logs:/var/log/certbot:rw
