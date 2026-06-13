@@ -9,7 +9,7 @@ EOF
 
 chmod 600 /etc/letsencrypt/aliyun.ini
 
-CMD="certbot certonly --dns-aliyun --agree-tos --non-interactive --dns-aliyun-credentials /etc/letsencrypt/aliyun.ini"
+CMD="certbot certonly --authenticator dns-aliyun --agree-tos --non-interactive --dns-aliyun-credentials /etc/letsencrypt/aliyun.ini"
 
 if test "x$CERTBOT_EMAIL" = "x"; then
     CMD="$CMD --register-unsafely-without-email"
