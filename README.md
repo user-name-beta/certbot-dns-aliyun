@@ -1,5 +1,9 @@
 # certbot Docker image with certbot-dns-aliyun plugin
 
+> [!NOTE]
+> This GitHub repository is no longer maintained, but it still
+> can be used in Docker Hub. The image will still be maintained.
+
 [Chinese Version](https://github.com/user-name-beta/certbot-dns-aliyun/blob/main/README.cn.md)
 
 Sometimes, we need to use [Alibaba Cloud](https://www.aliyun.com) to [manage DNS records](https://dns.console.aliyun.com),
